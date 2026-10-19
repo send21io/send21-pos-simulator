@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>send21 pos simulator · mock</title>
+<style>
+body { margin: 0; background: #0f1013; font: 600 16px system-ui, sans-serif; color: #f4f1ea; }
+.wrap { display: flex; gap: 16px; padding: 24px; justify-content: center; align-items: flex-start; }
+figure { margin: 0; text-align: center; }
+.frame { width: 200px; height: 434px; overflow: hidden; border-radius: 24px; border: 5px solid #2a2b31; box-shadow: 0 14px 40px #000a; display: flex; flex-direction: column; }
+.frame.bottom { justify-content: flex-end; }
+img { width: 200px; display: block; flex: none; }
+figcaption { margin-top: 10px; color: #ffb35c; font-size: 14px; }
+.note { text-align: center; color: #ffcc4d; font-size: 13px; margin: 0 0 22px; }
+</style>
+<div class="wrap">
+  <figure><div class="frame"><img src="1-amount.png" alt=""></div><figcaption>🧾 amount</figcaption></figure>
+  <figure><div class="frame"><img src="2-method.png" alt=""></div><figcaption>👇 method</figcaption></figure>
+  <figure><div class="frame"><img src="3-card-approved.png" alt=""></div><figcaption>💳 approved (sim)</figcaption></figure>
+  <figure><div class="frame"><img src="4-send21-qr.png" alt=""></div><figcaption>⚡ send21 QR</figcaption></figure>
+  <figure><div class="frame bottom"><img src="5-send21-paid.png" alt=""></div><figcaption>✅ paid + receipt</figcaption></figure>
+  <figure><div class="frame"><img src="6-mismatch.png" alt=""></div><figcaption>🚩 mismatch</figcaption></figure>
+</div>
+<p class="note">💳 card = 🧪 demo, no real card · nothing is ever charged</p>
+</html>
