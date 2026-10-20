@@ -34,6 +34,7 @@
    - your own receiving addresses (`PAY_LIGHTNING`, `PAY_OPTIONS`)
    - `MERCHANT_TOKEN` (`openssl rand -base64 24`)
    - `SHOP_NAME` and `CURRENCY` (EUR, USD or GBP)
+   - 🔐 **Approve your receiving addresses in send21.** New send21 accounts (created on or after 20 Oct 2026) only accept receiving addresses the owner approved, including Lightning addresses. Add them in the send21 app, or propose one from an agent (MCP `propose_receiving_address`), then sign in and approve it with a passkey or authenticator code. No API key can approve an address. Older accounts can opt in under Settings.
 4. **Webhook.** Put the server behind your own HTTPS address, for example a reverse proxy with a free Let's Encrypt certificate and `TRUST_PROXY=1`. Then run `npm run webhook:register` and paste the printed `SEND21_WEBHOOK_SECRET` into `.env`.
 5. **Go.** Run `npm run build && npm start`, open `https://your-site/` on the counter tablet or phone, and log in with `MERCHANT_TOKEN`.
 
@@ -83,6 +84,10 @@ A payment that arrives after ⌛ or ✖️ cancel still counts as paid. It is ma
 **⚡ Lightning.** send21 fetches an invoice from your Lightning address. It confirms the payment when your wallet provider supports **LUD-21**. Without LUD-21 the money still reaches you, but the terminal does not turn ✅ on its own. See [Lightning](https://send21.io/docs/lightning).
 
 **Fees.** One small send21 fee per paid sale (0.49% on small payments, at least $0.01), never taken from the payment. See [pricing](https://send21.io/pricing).
+
+## Troubleshooting
+
+- **422 `address_not_approved`:** a receiving address isn't approved in your send21 account, so nothing was created. Sign in to send21, approve the address (passkey or authenticator code), then try again.
 
 ## Security notes
 
